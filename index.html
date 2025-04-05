@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aquare - Tu App de Reciclaje de Agua</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+    <div class="container header-content">
+        <a href="#" class="logo-link">
+            <img src="img/logo.png" alt="Logo Aquare" class="logo" style="width: 120px; height: auto;">
+        </a>
+        <nav>
+            <ul class="header-actions">
+                <li><a href="login.html" class="action-button rounded primary">Iniciar Sesión</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+    <nav>
+        <div class="container">
+            <ul class="nav-links">
+                <li><a href="#seguimiento" data-i18n="nav.tracking">💧 Seguimiento</a></li>
+                <li><a href="#tips" data-i18n="nav.tips">💡 Consejos</a></li>
+                <li><a href="#ducha" data-i18n="nav.shower">🚿 Ducha</a></li>
+                <li><a href="#gamificacion" data-i18n="nav.achievements">🏆 Logros</a></li>
+                <li><a href="#ods" data-i18n="nav.impact">🌍 Impacto</a></li>
+            </ul>
+        </div>
+    </nav>
+    <main class="container">
+        <section id="seguimiento" class="app-section water-tracking">
+            <h2 class="section-title" data-i18n="tracking.title">Tu Consumo de Hoy</h2>
+            <div class="water-counter">
+                <span id="total-litros" >125</span> <span class="unit" data-i18n="unit.liters">L</span>
+            </div>
+            <div class="usage-details">
+                <div class="detail-item"><span data-i18n="usage.kitchen">Cocina:</span> <span id="cocina-litros">35</span> L</div>
+                <div class="detail-item"><span data-i18n="usage.shower">Ducha:</span> <span id="ducha-litros-hoy">60</span> L</div>
+                <div class="detail-item"><span data-i18n="usage.sink">Lavamanos:</span> <span id="lavamanos-litros">15</span> L</div>
+                <div class="detail-item"><span data-i18n="usage.toilet">WC:</span> <span id="wc-litros">15</span> L</div>
+            </div>
+
+            <h3 data-i18n="tracking.detailed">Consumo Detallado</h3>
+            <div class="interactive-table-container">
+                <table class="interactive-table" id="usage-table">
+                    <thead>
+                        <tr>
+                            <th data-i18n="table.date">Fecha</th>
+                            <th data-i18n="table.time">Hora</th>
+                            <th data-i18n="table.location">Ubicación</th>
+                            <th data-i18n="table.usage">Uso (L)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>05/04/2025</td><td>08:15</td><td>Ducha</td><td>15</td></tr>
+                        <tr><td>05/04/2025</td><td>08:30</td><td>Lavamanos</td><td>2</td></tr>
+                        <tr><td>05/04/2025</td><td>09:00</td><td>Cocina</td><td>5</td></tr>
+                        </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="tips" class="app-section tips-container">
+            <h2 class="section-title" data-i18n="tips.title">Aprende a Ahorrar Agua</h2>
+            <div class="tip-card" onclick="toggleTip('tip-ducha')">
+                <div class="tip-header" data-i18n="tips.shower.header">🚿 Ducha Eficiente</div>
+                <div id="tip-ducha" class="tip-content">
+                    <ul data-i18n="tips.shower.list">
+                        <li>⏱️ Reduce tu tiempo bajo el agua.</li>
+                        <li>🚿 Usa un cabezal de bajo flujo.</li>
+                        <li>🧴 Cierra el grifo al enjabonarte.</li>
+                    </ul>
+                    <div class="video-placeholder">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="80" height="48" viewBox="0 0 100 60" style="fill:rgba(0, 0, 0, 0.1);">
+                            <path d="M91.8,8.2c-1.7-2.9-4.9-4.8-8.4-4.8H16.6c-3.5,0-6.7,1.9-8.4,4.8C5.8,11.1,5,14.8,5,18.7v22.7c0,3.9,0.8,7.6,3.2,10.5c1.7,2.9,4.9,4.8,8.4,4.8h66.8c3.5,0,6.7-1.9,8.4-4.8c2.4-2.9,3.2-6.6,3.2-10.5V18.7C95,14.8,94.2,11.1,91.8,8.2zM68.9,34.2l-22.7,11.4c-0.5,0.3-1.1,0.4-1.6,0.4c-0.6,0-1.1-0.1-1.6-0.4c-1-0.5-1.6-1.5-1.6-2.6V16.9c0-1.1,0.6-2.1,1.6-2.6c1-0.5,2.1-0.2,2.6,0.7l22.7,11.4c0.5,0.3,1.1,0.4,1.6,0.4c0.6,0,1.1-0.1,1.6-0.4c1-0.5,1.6-1.5,1.6-2.6v0C70.5,36.7,69.9,35.2,68.9,34.2z"/>
+                        </svg>
+                        <p class="video-caption" data-i18n="tips.watch">Ver tutorial</p>
+                    </div>
+                </div>
+            </div>
+            <div class="tip-card" onclick="toggleTip('tip-wc')">
+                <div class="tip-header" data-i18n="tips.toilet.header">🚽 Uso del Inodoro</div>
+                <div id="tip-wc" class="tip-content">
+                    <ul data-i18n="tips.toilet.list">
+                        <li>🚽 No uses el WC como papelera.</li>
+                        <li>🚽 Considera doble descarga.</li>
+                    </ul>
+                    <p data-i18n="tips.toilet.info">Un pequeño cambio, gran ahorro.</p>
+                </div>
+            </div>
+            <div class="tip-card" onclick="toggleTip('tip-cocina')">
+                <div class="tip-header" data-i18n="tips.kitchen.header">🍽️ Cocina y Fregadero</div>
+                <div id="tip-cocina" class="tip-content">
+                    <ul data-i18n="tips.kitchen.list">
+                        <li>💧 No dejes el grifo abierto al lavar.</li>
+                        <li>🍎 Lava en un recipiente.</li>
+                    </ul>
+                    <p data-i18n="tips.kitchen.info">Ahorra agua en cada lavado.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="control" class="app-section control-agua">
+            <h2 class="section-title" data-i18n="control.title">Control Inteligente</h2>
+            <p class="control-description" data-i18n="control.description">Optimiza el uso del agua sin que lo notes.</p>
+            <button class="action-button rounded primary" onclick="activarModoAhorroAutomatico()">
+                <svg viewBox="0 0 24 24" fill="currentColor" class="button-icon">
+                    <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-4z"/>
+                </svg>
+                <span data-i18n="control.button">Modo Ahorro</span>
+            </button>
+            <p class="incentive-message" data-i18n="control.incentive">"¡Este mes has ahorrado <span class="highlight">210 litros</span> sin esfuerzo!"</p>
+        </section>
+
+        <section id="ducha" class="app-section ducha-program">
+            <h2 class="section-title" data-i18n="shower.title">Tu Ducha Personalizada</h2>
+            <p class="section-subtitle" data-i18n="shower.subtitle">Elige la duración ideal para ti:</p>
+            <div class="shower-options">
+                <button class="action-button rounded shower-button active" data-duration="6" onclick="iniciarDucha(6)">
+                    <span class="duration">6 min</span>
+                    <span class="mode-title" data-i18n="shower.mode.rapid">Rápida</span>
+                </button>
+                <button class="action-button rounded shower-button" data-duration="15" onclick="iniciarDucha(15)">
+                    <span class="duration">15 min</span>
+                    <span class="mode-title" data-i18n="shower.mode.balanced">Equilibrada</span>
+                </button>
+                <button class="action-button rounded shower-button alert" data-duration="25" onclick="iniciarDucha(25)">
+                    <span class="duration">25 min</span>
+                    <span class="mode-title" data-i18n="shower.mode.extended">Prolongada</span>
+                </button>
+            </div>
+            <div id="ducha-alertas" class="alert-container"></div>
+        </section>
+
+        <section id="gamificacion" class="app-section gamificacion">
+            <h2 class="section-title" data-i18n="achievements.title">Tus Logros</h2>
+            <div class="score">
+                <svg viewBox="0 0 24 24" fill="#ffc107" class="score-icon">
+                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                </svg>
+                <span id="puntos-usuario">75</span> <span class="unit" data-i18n="unit.points">Puntos</span>
+            </div>
+            <p class="incentive-message" data-i18n="achievements.incentive">"¡Has mantenido una racha de ahorro por <span class="highlight">7 días</span>! ¡Sigue así para desbloquear recompensas especiales!"</p>
+            <div class="mascota">💧</div>
+            <p class="mascota-text" data-i18n="achievements.mascot">¡Eco está contento con tu progreso!</p>
+        </section>
+
+        <section id="ods" class="app-section ods-container">
+            <h2 class="section-title" data-i18n="impact.title">Impacto Sostenible</h2>
+            <p class="section-subtitle" data-i18n="impact.subtitle">Cómo tu ahorro contribuye a los Objetivos de Desarrollo Sostenible:</p>
+            <ul class="ods-list">
+                <li class="ods-item"><span class="ods-icon">💧</span> <span data-i18n="ods.water">Agua Limpia y Saneamiento</span></li>
+                <li class="ods-item"><span class="ods-icon">🏘️</span> <span data-i18n="ods.cities">Ciudades y Comunidades Sostenibles</span></li>
+                <li class="ods-item"><span class="ods-icon">♻️</span> <span data-i18n="ods.consumption">Producción y Consumo Responsables</span></li>
+                <li class="ods-item"><span class="ods-icon">☀️</span> <span data-i18n="ods.climate">Acción por el Clima</span></li>
+                <li class="ods-item"><span class="ods-icon">🤝</span> <span data-i18n="ods.partnerships">Alianzas para Lograr los Objetivos</span></li>
+            </ul>
+            <a href="https://www.un.org/sustainabledevelopment/es/objetivos-de-desarrollo-sostenible/" target="_blank" class="learn-more" data-i18n="impact.learn_more">Más información sobre los ODS</a>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Aquare</p>
+        </div>
+    </footer>
+
+    <script src="javascript.js"></script>
+</body>
+</html>

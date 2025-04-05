@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión - Aquare</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <a href="index.html" class="back-button action-button rounded secondary">Volver</a>
+    <div class="login-container">
+        <div class="login-card">
+            <div class="login-header">
+                <img src="logo.png" alt="Logo Aquare" class="login-logo">
+                <h2 data-i18n="login.signin">Iniciar Sesión</h2>
+            </div>
+            <form id="login-form">
+                <div class="input-group">
+                    <label for="email" data-i18n="login.email">Correo electrónico</label>
+                    <input type="email" id="email" placeholder="ejemplo@email.com" required autofocus>
+                </div>
+                <div id="password-section" style="display: none;">
+                    <div class="input-group">
+                        <label for="password" data-i18n="login.password">Contraseña</label>
+                        <input type="password" id="password" placeholder="Tu contraseña" required>
+                    </div>
+                </div>
+                <div class="button-container">
+                    <button type="button" id="next-button" class="action-button rounded primary" onclick="handleNext()" data-i18n="login.next">Siguiente</button>
+                    <button type="submit" id="signin-button" class="action-button rounded primary" onclick="simulateLogin()" style="display: none;" data-i18n="login.signin">Iniciar Sesión</button>
+                </div>
+                <div class="links">
+                    <a href="#" data-i18n="login.forgot_email">¿Olvidaste tu correo electrónico?</a>
+                    <a href="#" data-i18n="login.forgot_password">¿Olvidaste tu contraseña?</a>
+                    <a href="#" data-i18n="login.create_account">Crear cuenta</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="login.js"></script>
+</body>
+</html>
